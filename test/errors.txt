@@ -1,0 +1,18 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/screens.rpy", line 811: expected 'simple_expression' not found.
+    xalign = 0.5
+           ^
+
+File "game/screens.rpy", line 825: expected 'simple_expression' not found.
+    xalign = 0.5
+           ^
+
+File "game/screens.rpy", line 837: expected 'simple_expression' not found.
+    xalign = 0.5
+           ^
+
+Ren'Py Version: Ren'Py 7.4.11.2266
+Sun Apr 24 13:22:54 2022
