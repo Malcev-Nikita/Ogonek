@@ -9,7 +9,7 @@ init -2:
     image mm_bg = Movie(play="gui/main.mpg", size=(1920, 1080))
 
 
-## Заставка
+## Заставка леее
 
 label splashscreen:
     play music "audio/main_menu_music.ogg" fadein 5
