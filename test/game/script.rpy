@@ -20,7 +20,13 @@ label main_menu:
 ################################################################################
 
 ## Персонажи ###################################################################
+define YoungMan = Character("Молодой человек")
 define Ferapontov = Character("Ферапонтов")
+define Krasin = Character("Красин")
+define Nikitenko = Character("Никитенко")
+define Tonya = Character("Тоня")
+define Klava = Character("Клава")
+define Toporkov = Character("Топорков")
 
 ## Начало сюжета (Глава 1) #####################################################
 label start:
