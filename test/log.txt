@@ -1,18 +1,18 @@
-Tue Jun 28 10:02:00 2022
+Tue Jun 28 13:07:58 2022
 Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
  
 
-Bootstrap to the start of init.init took 0.11s
+Bootstrap to the start of init.init took 0.12s
 Early init took 0.00s
-Loader init took 0.03s
-Loading error handling took 0.02s
+Loader init took 0.02s
+Loading error handling took 0.03s
 Loading script took 0.19s
-Loading save slot metadata. took 0.02s
+Loading save slot metadata. took 0.01s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
 Running init code took 0.07s
-Loading analysis data took 0.02s
+Loading analysis data took 0.03s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\User\\AppData\\Roaming/RenPy/backups\\test':
@@ -26,7 +26,7 @@ nvdrs: "Couldn't load nvlib." (can be ignored)
 Creating interface object took 0.00s
 Cleaning stores took 0.00s
 Init translation took 0.05s
-Build styles took 0.00s
+Build styles took 0.01s
 Load screen analysis took 0.00s
 Analyze screens took 0.02s
 Save screen analysis took 0.04s
