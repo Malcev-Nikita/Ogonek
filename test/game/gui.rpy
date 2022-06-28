@@ -56,13 +56,13 @@ define gui.interface_text_color = u'#ffffff'
 ## Шрифты и их размеры #########################################################
 
 ## Шрифт, используемый внутриигровым текстом.
-define gui.text_font = "fonts/main.ttf"
+define gui.text_font = "fonts/main.otf"
 
 ## Шрифт, используемый именами персонажей.
-define gui.name_text_font = "fonts/main.ttf"
+define gui.name_text_font = "fonts/main.otf"
 
 ## Шрифт, используемый текстом вне игры.
-define gui.interface_text_font = "fonts/main.ttf"
+define gui.interface_text_font = "fonts/main.otf"
 
 ## Размер нормального текста диалога.
 define gui.text_size = 33

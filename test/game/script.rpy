@@ -11,7 +11,7 @@ label main_menu:
     scene black
     pause(0.5)
     show movie with fade
-    $ renpy.music.play("gui/main.mpg", channel="movie", loop=False)
+    $ renpy.music.play("gui/main.mpg", channel="movie", loop=-1)
     play music "audio/main_menu_music.ogg" fadein 5
     jump main_menu_screen
 
@@ -31,6 +31,8 @@ define Toporkov = Character("Топорков")
 ## Начало сюжета (Глава 1) #####################################################
 label start:
     stop movie #без этого видео не остановится
+
+
     "Звонок из прошлого оторвал меня от чистки картофеля."
 
     return

@@ -294,21 +294,21 @@ screen navigation():
         style_prefix "navigation"
 
 
-        yalign 0.48
-        xalign 0.48
+        yalign 0.60
+        xalign 0.49
 
         spacing gui.navigation_spacing
 
 
-        textbutton _("     НОВАЯ ИГРА") action Start() style "navigation_hover_button"
+        textbutton _("НОВАЯ ИГРА {vspace=1}") action Start() style "navigation_hover_button"
 
-        textbutton _("      ЗАГРУЗИТЬ") action ShowMenu("load") style "navigation_hover_button"
+        textbutton _("ЗАГРУЗИТЬ {vspace=1}") action ShowMenu("load") style "navigation_hover_button"
 
-        textbutton _("      НАСТРОЙКИ") action ShowMenu("preferences") style "navigation_hover_button"
+        textbutton _("НАСТРОЙКИ {vspace=1}") action ShowMenu("preferences") style "navigation_hover_button"
 
-        textbutton _("     ОБ АВТОРАХ") action ShowMenu("about") style "navigation_hover_button"
+        textbutton _("ОБ АВТОРАХ {vspace=1}") action ShowMenu("about") style "navigation_hover_button"
 
-        textbutton _("        ВЫХОД") action Quit() style "navigation_hover_button"
+        textbutton _("ВЫХОД {vspace=1}") action Quit() style "navigation_hover_button"
 
 
 style navigation_button is gui_button
@@ -323,7 +323,7 @@ style navigation_button_text:
     line_leading 20
 
 style navigation_hover_button:
-    hover_background "/images/button_hover.png"
+    xalign 0.5
     hover_sound "audio/click.ogg"
 
 
@@ -512,20 +512,19 @@ screen about():
 
     ## Этот оператор включает игровое меню внутрь этого экрана. Дочерний vbox
     ## включён в порт просмотра внутри экрана игрового меню.
-    use game_menu(_("Об игре"), scroll="viewport"):
+    use game_menu(_("Об Авторах"), scroll="viewport"):
 
         style_prefix "about"
 
         vbox:
 
-            label "[config.name!t]"
-            text _("Версия [config.version!t]\n")
-
             ## gui.about обычно установлено в options.rpy.
             if gui.about:
                 text "[gui.about!t]\n"
 
-            text _("Сделано с помощью {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+            text _("Программировали\n")
+            text _("Озвучивали\n")
+            text _("Рисовали")
 
 
 style about_label is gui_label
@@ -665,6 +664,7 @@ style slot_button:
 
 style slot_button_text:
     properties gui.button_text_properties("slot_button")
+    yalign 0.5
 
 
 ## Экран настроек ##############################################################
@@ -677,58 +677,58 @@ screen preferences():
 
     tag menu
 
-    use game_menu(_(""), scroll="viewport"):
+    use game_menu(_("Настройки")):
 
         vbox:
-
             hbox:
+                xalign 0.5
                 box_wrap True
 
-                if renpy.variant("pc") or renpy.variant("web"):
-
-                    vbox:
-                        style_prefix "radio"
-                        label _("         Режим")
-                        textbutton _("         Оконный") action Preference("display", "window") style "navigation_hover_button"
-                        textbutton _("     Полноэкранный") action Preference("display", "fullscreen") style "navigation_hover_button"
+                vbox:
+                    xpos 0.3
+                    style_prefix "radio"
+                    label _("Режим") style "navigation_label"
+                    textbutton _("Оконный") action Preference("display", "window") style "navigation_hover_button"
+                    textbutton _("Полноэкранный") action Preference("display", "fullscreen") style "navigation_hover_button"
 
                 vbox:
+                    xpos 0.8
                     style_prefix "check"
-                    label _("         Пропуск")
-                    textbutton _("      Всего текста") action Preference("skip", "toggle") style "navigation_hover_button"
-                    textbutton _("     После выборов") action Preference("after choices", "toggle") style "navigation_hover_button"
-                    textbutton _("        Переходов") action InvertSelected(Preference("transitions", "toggle")) style "navigation_hover_button"
-
-                ## Дополнительные vbox'ы типа "radio_pref" или "check_pref"
-                ## могут быть добавлены сюда для добавления новых настроек.
+                    label _("Пропуск") style "navigation_label"
+                    textbutton _("Всего текста") action Preference("skip", "toggle") style "navigation_hover_button"
+                    textbutton _("После выборов") action Preference("after choices", "toggle") style "navigation_hover_button"
+                    textbutton _("Переходов") action InvertSelected(Preference("transitions", "toggle")) style "navigation_hover_button"
 
             null height (4 * gui.pref_spacing)
 
             hbox:
+                xalign 0.5
                 style_prefix "slider"
                 box_wrap True
 
                 vbox:
+                    xpos 0.3
 
-                    label _("Скорость текста")
+                    label _("Скорость текста") style "text_label"
 
                     bar value Preference("text speed")
 
-                    label _("Скорость авточтения")
+                    label _("Скорость авточтения") style "text_label"
 
                     bar value Preference("auto-forward time")
 
                 vbox:
+                    xpos 0.5
 
                     if config.has_music:
-                        label _("Громкость музыки")
+                        label _("Громкость музыки") style "text_label"
 
                         hbox:
                             bar value Preference("music volume")
 
                     if config.has_sound:
 
-                        label _("Громкость звуков")
+                        label _("Громкость звуков") style "text_label"
 
                         hbox:
                             bar value Preference("sound volume")
@@ -738,7 +738,7 @@ screen preferences():
 
 
                     if config.has_voice:
-                        label _("Громкость голоса")
+                        label _("Громкость голоса") style "text_label"
 
                         hbox:
                             bar value Preference("voice volume")
@@ -792,23 +792,18 @@ style pref_vbox:
 
 style radio_vbox:
     spacing gui.pref_button_spacing
-    selected_background "/images/button_hover.png"
 
 style radio_button:
     properties gui.button_properties("radio_button")
-    selected_background "/images/button_hover.png"
 
 style radio_button_text:
     properties gui.button_text_properties("radio_button")
 
 style check_vbox:
     spacing gui.pref_button_spacing
-    selected_background "/images/button_hover.png"
 
 style check_button:
     properties gui.button_properties("check_button")
-    selected_background "/images/button_hover.png"
-    hover_background "/images/button_hover.png"
     hover_sound "audio/click.ogg"
 
 style check_button_text:
@@ -829,9 +824,16 @@ style slider_vbox:
     xsize 675
 
 style navigation_hover_button:
-    hover_background "/images/button_hover.png"
     hover_sound "audio/click.ogg"
-    selected_background "/images/button_hover.png"
+
+style navigation_label:
+    xalign 0.5
+    bottom_padding 15
+
+style text_label:
+    xalign 0.3
+    bottom_padding 15
+    top_padding 50
 
 
 ## Экран истории ###############################################################
