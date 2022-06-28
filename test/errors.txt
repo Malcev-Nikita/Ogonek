@@ -2,17 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 811: expected 'simple_expression' not found.
-    xalign = 0.5
-           ^
-
-File "game/screens.rpy", line 825: expected 'simple_expression' not found.
-    xalign = 0.5
-           ^
-
-File "game/screens.rpy", line 837: expected 'simple_expression' not found.
-    xalign = 0.5
-           ^
+File "game/script.rpy", line 18: invalid syntax
+    renpy.music.play("gui/main.mpg", channel="movie", loop=False) with fade
+                                                                      ^
+    
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Sun Apr 24 13:22:54 2022
+Sun Jun 26 00:40:44 2022

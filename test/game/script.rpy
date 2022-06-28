@@ -1,32 +1,31 @@
-﻿## Персонажи
+################################################################################
+## Запуск игры (splashscreen)
+################################################################################
+init python:
+    style.mm_root.background = u'#000000'
 
-define Ferapontov = Character("Ферапонтов")
-
-
-## Видео
-
-init -2:
-    image mm_bg = Movie(play="gui/main.mpg", size=(1920, 1080))
-
-
-## Заставка леее
-
-label splashscreen:
-    play music "audio/main_menu_music.ogg" fadein 5
-    scene black
-    pause(0.5)
-
-
-## Стартовый экран
+init:
+    #на весь экран
+    image movie = Movie(size=(config.screen_width, config.screen_height))
 
 label main_menu:
-    scene mm_bg with fade
+    scene black
+    pause(0.5)
+    scene movie
+    $ renpy.music.play("gui/main.mpg", channel="movie", loop=False)
+    play music "audio/main_menu_music.ogg" fadein 5
     jump main_menu_screen
 
+################################################################################
+## Сюжет
+################################################################################
 
-# Диалоги
+## Персонажи ###################################################################
+define Ferapontov = Character("Ферапонтов")
 
+## Начало сюжета (Глава 1) #####################################################
 label start:
+    stop movie #без этого видео не остановится
     "Звонок из прошлого оторвал меня от чистки картофеля."
 
     return
