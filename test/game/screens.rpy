@@ -255,8 +255,8 @@ screen quick_menu():
 
             textbutton _("История") action ShowMenu('history')
             textbutton _("Авто") action Preference("auto-forward", "toggle")
-            textbutton _("Далее")
-            textbutton _("Опции") action ShowMenu('preferences')
+            textbutton _("Перемотка")
+            textbutton _("Меню") action ShowMenu('navigation_play')
             textbutton _("Словарь")
 
             textbutton _("Скрыть")
@@ -311,20 +311,35 @@ screen navigation():
         textbutton _("ВЫХОД {vspace=1}") action Quit() style "navigation_hover_button"
 
 
-style navigation_button is gui_button
-style navigation_button_text is gui_button_text
-
-style navigation_button:
-    size_group "navigation"
-    properties gui.button_properties("navigation_button")
-
-style navigation_button_text:
-    properties gui.button_text_properties("navigation_button")
-    line_leading 20
-
 style navigation_hover_button:
     xalign 0.5
     hover_sound "audio/click.ogg"
+
+
+## Экран навигации в игре ######################################################
+screen navigation_play():
+
+    vbox:
+        style_prefix "navigation_play"
+
+        yalign 0.60
+        xalign 0.49
+
+        textbutton _("ПРОДОЛЖИТЬ {vspace=1}") action Return() style "navigation_play_button"
+
+        textbutton _("ЗАГРУЗИТЬ {vspace=1}") action Hide("navigation_play"), ShowMenu("load") style "navigation_play_button"
+
+        textbutton _("НАСТРОЙКИ {vspace=1}") action Hide("navigation_play"), ShowMenu("preferences") style "navigation_play_button"
+
+        textbutton _("ОБ АВТОРАХ {vspace=1}") action Hide("navigation_play"), ShowMenu("about") style "navigation_play_button"
+
+        textbutton _("ВЫХОД {vspace=1}") action MainMenu(False, True) style "navigation_play_button"
+
+
+style navigation_play_button:
+    xalign 0.5
+    hover_sound "audio/click.ogg"
+
 
 
 ## Экран главного меню #########################################################

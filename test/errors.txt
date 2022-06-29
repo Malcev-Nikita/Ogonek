@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 706: keyword argument u'xalign' appears more than once in a hbox statement.
-    xalign 0.5
-          ^
+File "game/screens.rpy", line 334: Line is indented, but the preceding ATL statement does not expect a block. Please check this line's indentation.
+    style_prefix "navigation"
+    ^
 
 Ren'Py Version: Ren'Py 7.4.11.2266
-Tue Jun 28 21:33:03 2022
+Wed Jun 29 23:32:56 2022

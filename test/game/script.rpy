@@ -9,7 +9,6 @@ init:
 
 label main_menu:
     scene black
-    pause(0.5)
     show movie with fade
     $ renpy.music.play("gui/main.mpg", channel="movie", loop=-1)
     play music "audio/main_menu_music.ogg" fadein 5
